@@ -23,10 +23,12 @@ Back End : Hardhut , Goerli , Metamask , Ethnet
 
 <b>Milestones</b>
 
-1. Create the playlist with 5 different tracks to choose from
+1. Create the playlist with 3 different tracks to choose from
    A. Create the view in which the tracks will load
+   -List of tracks
+   -Buy button for the purchase of a track
+   -Login button
    B. Connect a database with the songs names, album icon
-   C Create the button which will lead to purchase of a track
 2. Create a smart contract for the payment
    A. Create the blockchain payment
    1. Initial Block
