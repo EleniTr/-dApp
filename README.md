@@ -24,11 +24,11 @@ Back End : Hardhut , Goerli , Metamask , Ethnet
 <b>Milestones</b>
 
 1. Create the playlist with 3 different tracks to choose from
-   A. Create the view in which the tracks will load
-   -List of tracks
-   -Buy button for the purchase of a track
-   -Login button
-   B. Connect a database with the songs names, album icon
+   A. Create the view in which the tracks will load</br>
+   1. List of tracks
+   2. Buy button for the purchase of a track
+   3. Login button
+      B. Connect a database with the songs names, album icon
 2. Create a smart contract for the payment
    A. Create the blockchain payment
    1. Initial Block
@@ -36,6 +36,39 @@ Back End : Hardhut , Goerli , Metamask , Ethnet
    3. Way to add to the chain the block
 3. Create a message that updates the customer of their purchase
    A. Create an email / or message
+
    1. Update the customer about the compilation of the payment
    2. Sent a link with the downloadable file
       B. Guide the user to a thank you page
+
+      meta data of the song σε json
+      https://docs.openzeppelin.com/contracts/4.x/wizard
+      https://nftschool.dev/
+      -save data here ipfs.io
+      -elegxos an menoun ta arxeia pinata / filecoin
+
+      -apo tin pleura tou dimiourgou to fe
+
+      Poios tha kanei host to service / :
+      ERC1155 - ERC721
+
+Να περιγράψω το project απο την πλευρά του πελάτη και αυτου που πουλάει
+Γιατι να πουλάει ο αλλος, πρέπει να βγαζει καποιο κερδος επι του προιοντος(ποσοστό), και αυτός που κανει hosting την πλατφορμα να παίρνει κάποιο ποσοστό
+με τα erc721 oi gorillas Μπορούν να βάρουν ένα ποσοστό μέσα στο πηγαίο τραγούδι και να παίρνουν σε κάθε επαναπώληση του ενα αντιτιμο
+
+Απλα μπορέι με το ipfs να στέλενι link gia na κατεβάζε.Δεν χρειαζεται email
+s
+
+FRONT END
+
+Δημιουργία LOGIN ως αρχική(firebase για λογαριασμούς)
+
+Δημιουργία front για τον πελατη(συνδεση σελίδων)
+-ποια τραγουδια βλέπει / πληρωμή
+-bar με το login
+
+Δημιουργία front για τον πωλητη(συνδεση σελίδων)
+-ποια τραγουδια βλέπει / πληρωμή
+-bar με το login
+Εχει χώρο να βαλει τα τραγουδια
+Εχει χώρο να δει ποιος ον πλήρωσε
