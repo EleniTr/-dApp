@@ -28,7 +28,6 @@ const ROUTES: Route[] = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(ROUTES),
     FlexLayoutModule,
     BrowserAnimationsModule,
     FormsModule,
