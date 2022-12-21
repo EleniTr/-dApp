@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebase: {
+    apiKey: 'AIzaSyDKiErVIvzmxbVBkwF6JpbSsvN0gRnfkYU',
+
+    authDomain: 'chaining-spotify.firebaseapp.com',
+
+    projectId: 'chaining-spotify',
+
+    storageBucket: 'chaining-spotify.appspot.com',
+
+    messagingSenderId: '443168672530',
+
+    appId: '1:443168672530:web:1a6f752a56f1d7d02f01cb',
+  },
 };
 
 /*

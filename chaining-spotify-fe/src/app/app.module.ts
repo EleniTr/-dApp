@@ -11,21 +11,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { CustomerInterfaceComponent } from './customer-interface/customer-interface.component';
-import { ProviderInterfaceComponent } from './provider-interface/provider-interface.component';
+
+//Firebase services + environment module
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
 
 const ROUTES: Route[] = [
   { path: '', component: LoginComponent },
   { path: 'customer', component: CustomerInterfaceComponent },
-  { path: 'provider', component: ProviderInterfaceComponent },
 ];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    CustomerInterfaceComponent,
-    ProviderInterfaceComponent,
-  ],
+  declarations: [AppComponent, LoginComponent, CustomerInterfaceComponent],
   imports: [
     BrowserModule,
     FlexLayoutModule,
@@ -34,6 +35,11 @@ const ROUTES: Route[] = [
     ReactiveFormsModule,
     AngularMaterialModule,
     AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
