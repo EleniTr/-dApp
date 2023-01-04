@@ -72,3 +72,13 @@ FRONT END
 -bar με το login
 Εχει χώρο να βαλει τα τραγουδια
 Εχει χώρο να δει ποιος ον πλήρωσε
+
+Ο πελατης
+Λίστα με τραγούδια που θα βλέπει ο χρήστης
+Να το βάζει στο καλάθι και να παίρνει το τιτλο ή καποιο διακτριτικό, να τον πετάει να το αγοράσει και να σου δίνει το link για το τραγούδι στην βάση
+
+Smart contracts (ERC721)
+Uploading Metadata (IPFS) DONE
+NFT Minting Website
+Contract Integration in Frontend
+Metamask Integration
