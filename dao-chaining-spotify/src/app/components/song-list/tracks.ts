@@ -1,0 +1,70 @@
+import { track } from "./track";
+
+export const TRACKS: track[] = [
+  {
+    id: 0,
+    artist: "Maneskin",
+    album: "RUSH",
+    description:
+      "Rush! is the third studio album by Italian rock band Måneskin, released on 20 January 2023 through Epic Records.",
+    price: 500,
+    image: "https://i.scdn.co/image/ab67616d0000b273c1b211b5fcdef31be5f806df",
+  },
+  {
+    id: 1,
+    artist: "Bombasto",
+    album: "",
+    description: "",
+    price: 500,
+    image: "",
+  },
+  {
+    id: 2,
+    artist: "Celeritas",
+    album: "",
+    description: "",
+    price: 500,
+    image: "",
+  },
+  {
+    id: 3,
+    artist: "Magneta",
+    album: "",
+    description: "",
+    price: 500,
+    image: "",
+  },
+  {
+    id: 4,
+    artist: "RubberMan",
+    album: "",
+    description: "",
+    price: 500,
+    image: "",
+  },
+  {
+    id: 5,
+    artist: "Dynama",
+    album: "",
+    description: "",
+    price: 500,
+    image: "",
+  },
+  {
+    id: 6,
+    artist: "Dr. IQ",
+    album: "",
+    description: "",
+    price: 500,
+    image: "",
+  },
+  { id: 7, artist: "Magma", album: "", description: "", price: 500, image: "" },
+  {
+    id: 8,
+    artist: "Tornado",
+    album: "",
+    description: "",
+    price: 500,
+    image: "",
+  },
+];

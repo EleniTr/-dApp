@@ -1,11 +1,14 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { TransactionComponent } from './transaction/transaction.component';
-import { HomeComponent } from './home/home.component';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { HomeComponent } from "./containers/home/home.component";
+import { LoginComponent } from "./components/login/login.component";
+import { AuthGuard } from "./helpers/auth.guard";
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'transaction', component: TransactionComponent },
+  { path: "", component: HomeComponent, canActivate: [AuthGuard] },
+  { path: "login", component: LoginComponent },
+
+  { path: "**", redirectTo: "" },
 ];
 
 @NgModule({

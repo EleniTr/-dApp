@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { ContractService } from "./services/contract.service";
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  selector: "app-root",
+  templateUrl: "./app.component.html",
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  title = 'dao-chaining-spotify';
+  title = "chaining-spotify-dapp";
+  private user;
+
+  constructor() {}
 }

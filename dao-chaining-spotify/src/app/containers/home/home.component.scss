@@ -1,0 +1,27 @@
+.section {
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.section-connected {
+  height: 100%;
+  display: flex;
+  justify-content: left;
+  align-content: center;
+  color: #000;
+}
+
+.mat-app-background-connected {
+  background: #0b7465;
+  color: #fff;
+  padding-top: 160px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+}
+
+.container {
+  margin: 30px;
+}

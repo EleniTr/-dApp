@@ -1,0 +1,43 @@
+<div class="song-list">
+  <ul class="tracks">
+    <li *ngFor="let track of tracks">
+      <button [class.selected]="track === selectedTrack" type="button" (click)="onSelect(track)">
+        <span class="badge">{{track.id}}</span>
+        <span class="artist">{{track.artist}}</span>
+      </button>
+    </li>
+  </ul>
+
+  <div *ngIf="selectedTrack" class="song-card">
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{selectedTrack.album | uppercase}}</mat-card-title>
+          <img mat-card-sm-image *ngIf="selectedTrack.image!=''" src="{{selectedTrack.image}}"
+            alt="{{selectedTrack.artist }} - {{selectedTrack.album }}">
+          <img mat-card-sm-image *ngIf="selectedTrack.image==''" src="../assets/music.png"
+            alt="{{selectedTrack.artist }} - {{selectedTrack.album }}">
+        </mat-card-title-group>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- Για τον πωλητη πιο id πληρωθηκε -->
+        <!-- <div>Track id: {{selectedTrack.id}}</div> -->
+        <div>
+          <label for="track-name">Artist: {{selectedTrack.artist }}</label>
+          <p>{{selectedTrack.description}}</p>
+          <!-- Για τον χρηστη που περνα τα ονοματα με ενα submit  -->
+          <!-- <input id="hero-name" [(ngModel)]="selectedTrack.name" placeholder="name"> -->
+        </div>
+        <div class="track-price">
+          <span>Price( ETH ): {{selectedTrack.price}} </span>
+          <button class="add-to-cart">Add to Cart</button>
+        </div>
+
+      </mat-card-content>
+    </mat-card>
+
+
+  </div>
+
+</div>
