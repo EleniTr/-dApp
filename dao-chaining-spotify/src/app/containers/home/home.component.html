@@ -1,21 +1,20 @@
-<div [ngClass]="!connected ? 'mat-app-background section' : 'mat-app-background-connected section-connected' ">
-  <div *ngIf="!connected">
-    <app-connect (connect)="onConnect()"></app-connect>
-  </div>
 
-  <div *ngIf="connected" class="container-fluid" style="width: 100%;">
-    <app-song-list (create)="onCreate($event)"></app-song-list>
-    <!-- <app-create-org (create)="onCreate($event)"></app-create-org> -->
-    <!-- <mat-divider></mat-divider> -->
-  </div>
-</div>
 <div class="card mt-4">
-  <h4 class="card-header">You're logged in with Angular 8 & Basic HTTP Authentication!!</h4>
+  <h4 class="card-header">You're logged in as Customer</h4>
+  <mat-divider></mat-divider>
+  <!-- <div class="card-body" [ngClass]="!addedtoCart ? ' d-flex ' : 'd-none ' " > -->
   <div class="card-body">
-    <h6>Users from secure api end point</h6>
+  <div [ngClass]="!connected ? 'mat-app-background section' : 'mat-app-background-connected section-connected' ">
+    <div *ngIf="!connected">
+      <app-connect (connect)="onConnect()"></app-connect>
+    </div>
+
+    <div *ngIf="connected" class="container-fluid" style="width: 100%;">
+       <app-create-org (create)="onCreate($event)"></app-create-org>
+
+    </div>
+  </div>
     <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
-    <ul *ngIf="users">
-      <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
-    </ul>
+
   </div>
 </div>

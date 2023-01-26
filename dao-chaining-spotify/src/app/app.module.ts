@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -22,7 +23,11 @@ import { MatCardModule } from "@angular/material/card";
 import { MatRadioModule } from "@angular/material/radio";
 import { MatIconModule } from "@angular/material/icon";
 
-import { HttpClientModule } from "@angular/common/http";
+import { BasicAuthInterceptor } from "./helpers/basic-auth.interceptor";
+import { ErrorInterceptor } from "./helpers/error.interceptior";
+
+// used to create fake backend
+import { fakeBackendProvider } from "./helpers/fake-backend";
 
 import { StoreModule } from "@ngrx/store";
 import { reducers, metaReducers } from "./reducers";
@@ -30,7 +35,9 @@ import { EffectsModule } from "@ngrx/effects";
 import * as fromUser from "./reducers/user.reducer";
 import { UserEffects } from "./effects/user.effects";
 import * as fromOrganization from "./reducers/organization.reducer";
+import * as fromSongList from "./reducers/song-list.reducer";
 import { OrganizationEffects } from "./effects/organization.effects";
+// import { SongListEffects } from "./effects/song-list.effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { GetOrgComponent } from "./components/get-org/get-org.component";
 import { DetailOrgComponent } from "./components/detail-org/detail-org.component";
@@ -68,8 +75,16 @@ import { SongListComponent } from "./components/song-list/song-list.component";
       maxAge: 25,
     }),
     EffectsModule.forRoot([]),
+    StoreModule.forFeature(
+      fromSongList.songListFeatureKey,
+      fromSongList.reducer
+    ),
     StoreModule.forFeature(fromUser.userFeatureKey, fromUser.reducer),
-    EffectsModule.forFeature([UserEffects, OrganizationEffects]),
+    EffectsModule.forFeature([
+      UserEffects,
+      OrganizationEffects,
+      // SongListEffects,
+    ]),
     StoreModule.forFeature(
       fromOrganization.organizationFeatureKey,
       fromOrganization.reducer
@@ -81,6 +96,11 @@ import { SongListComponent } from "./components/song-list/song-list.component";
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: { floatLabel: "never" },
     },
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider,
   ],
   bootstrap: [AppComponent],
 })

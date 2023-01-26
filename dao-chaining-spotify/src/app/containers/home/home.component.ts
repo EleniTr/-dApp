@@ -4,9 +4,12 @@ import { Store, select } from "@ngrx/store";
 import { Observable, Subject } from "rxjs";
 import * as fromRoot from "../../reducers/index";
 import * as fromUser from "../../selectors/user.selectors";
+import * as fromSongList from "../../selectors/song-list.selector";
 import * as fromOrganization from "../../selectors/organization.selectors";
 import { takeUntil, tap } from "rxjs/operators";
 import { connectUser } from "../../actions/user.actions";
+import { SongListComponent } from "../../components/song-list/song-list.component";
+
 import {
   createOrganization,
   getOrganization,
@@ -21,12 +24,13 @@ import { UserService } from "../../services/user.services";
   selector: "app-home",
   templateUrl: "./home.component.html",
   styleUrls: ["./home.component.scss"],
-  providers: [ContractService],
+  providers: [ContractService, SongListComponent],
 })
 export class HomeComponent implements OnInit, OnDestroy {
   account$: Observable<any>;
   display$: Observable<any>;
   isAdmin$: Observable<any>;
+  songList$: Observable<any>;
   selectedOrganization$: Observable<any>;
   wallet$: Observable<any>;
   unsubscribe$: Subject<any> = new Subject<any>();
@@ -37,11 +41,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   connected;
   organizationDetails;
   isAdmin;
+  addedtoCart;
 
   constructor(
     private store$: Store<fromRoot.State>,
     private contractService: ContractService,
-    private userService: UserService
+    private userService: UserService,
+    private songListAddtoCart: SongListComponent
   ) {
     this.display$ = this.store$.pipe(select(fromUser.selectConnectionStatus));
     this.selectedOrganization$ = this.store$.pipe(
@@ -49,6 +55,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
     this.isAdmin$ = this.store$.pipe(
       select(fromOrganization.selectAdminStatus)
+    );
+    this.songList$ = this.store$.pipe(
+      select(fromSongList.selectSongListAddToCartStatus)
     );
   }
 
@@ -73,6 +82,9 @@ export class HomeComponent implements OnInit, OnDestroy {
       });
     this.isAdmin$.pipe(takeUntil(this.unsubscribe$)).subscribe((boolean) => {
       this.isAdmin = boolean;
+    });
+    this.songList$.pipe(takeUntil(this.unsubscribe$)).subscribe((res) => {
+      this.addedtoCart = res;
     });
   }
 

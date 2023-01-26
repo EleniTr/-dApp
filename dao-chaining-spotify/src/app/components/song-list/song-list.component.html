@@ -31,7 +31,8 @@
         </div>
         <div class="track-price">
           <span>Price( ETH ): {{selectedTrack.price}} </span>
-          <button class="add-to-cart">Add to Cart</button>
+          {{addedCart}}
+          <button class="add-to-cart" (click)="addToCart()">Add to Cart</button>
         </div>
 
       </mat-card-content>

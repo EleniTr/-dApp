@@ -1,7 +1,8 @@
-import { createFeatureSelector, createSelector } from '@ngrx/store';
-import * as fromOrganization from '../reducers/organization.reducer';
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import * as fromOrganization from "../reducers/organization.reducer";
+import { State } from "../state/organization.state";
 
-export const selectOrganizationState = createFeatureSelector<fromOrganization.State>(
+export const selectOrganizationState = createFeatureSelector<State>(
   fromOrganization.organizationFeatureKey
 );
 
@@ -13,4 +14,4 @@ export const selectOrganizationDetails = createSelector(
 export const selectAdminStatus = createSelector(
   selectOrganizationState,
   fromOrganization.isAdmin
-)
+);
