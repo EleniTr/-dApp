@@ -11,7 +11,10 @@ export class UserEffects {
     return this.actions$.pipe(
       ofType(SongListActionTypes.updateaddToCartStatus),
       map((response: any) =>
-        SongListActionTypes.updateaddToCartStatus({ addToCart: response })
+        SongListActionTypes.updateaddToCartStatus({
+          addToCart: response.addedCart,
+          id: response.id,
+        })
       )
     );
   });

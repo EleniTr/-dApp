@@ -16,5 +16,6 @@ export const updateaddToCartStatus = createAction(
   SongListActionTypes.updateaddToCartStatus,
   props<{
     addToCart: string;
+    id: number;
   }>()
 );

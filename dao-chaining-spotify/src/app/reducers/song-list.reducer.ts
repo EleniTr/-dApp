@@ -13,9 +13,10 @@ export const reducer = createReducer(
     ...state,
     addToCart: "false",
   })),
-  on(updateaddToCartStatus, (state) => ({
+  on(updateaddToCartStatus, (state, { id }) => ({
     ...state,
     addToCart: "true",
+    id: id,
   }))
 );
 

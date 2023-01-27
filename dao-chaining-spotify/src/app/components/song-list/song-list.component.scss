@@ -75,6 +75,8 @@
 .song-list {
   display: flex;
   flex-direction: row;
+  top: 150px;
+  position: relative;
 }
 
 .song-card {

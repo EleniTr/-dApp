@@ -30,10 +30,11 @@ export class SongListComponent implements OnInit {
     this.selectedTrack = track;
   }
 
-  addToCart() {
+  addToCart(id: number) {
     this.addedCart = this.store.dispatch({
       type: SongListActionTypes.updateaddToCartStatus,
       addedCart: "true",
+      id: id,
     });
     this.router.navigate(["/home"]);
   }

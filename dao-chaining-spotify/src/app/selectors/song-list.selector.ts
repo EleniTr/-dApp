@@ -9,3 +9,8 @@ export const selectSongListAddToCartStatus = createSelector(
   songListState,
   fromSongList.updateStatus
 );
+
+export const selectSongIdList = createSelector(
+  songListState,
+  (state: SongListState) => state.id
+);

@@ -2,7 +2,7 @@
   <ul class="tracks">
     <li *ngFor="let track of tracks">
       <button [class.selected]="track === selectedTrack" type="button" (click)="onSelect(track)">
-        <span class="badge">{{track.id}}</span>
+        <span class="badge">{{track.id+1}}</span>
         <span class="artist">{{track.artist}}</span>
       </button>
     </li>
@@ -32,7 +32,7 @@
         <div class="track-price">
           <span>Price( ETH ): {{selectedTrack.price}} </span>
           {{addedCart}}
-          <button class="add-to-cart" (click)="addToCart()">Add to Cart</button>
+          <button class="add-to-cart" (click)="addToCart(selectedTrack.id)">Add to Cart</button>
         </div>
 
       </mat-card-content>

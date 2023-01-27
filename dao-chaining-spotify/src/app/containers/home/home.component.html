@@ -1,26 +1,26 @@
 
 <div class="card mt-4">
   <button  class="back"><a routerLink="/"> < Back</a></button>
-<!-- <mat-card>
+<mat-card>
   <mat-card-header>
     <mat-card-title-group>
-      <mat-card-title>{{selectedTrack.album | uppercase}}</mat-card-title>
-      <img mat-card-sm-image *ngIf="selectedTrack.image!=''" src="{{selectedTrack.image}}"
-        alt="{{selectedTrack.artist }} - {{selectedTrack.album }}">
-      <img mat-card-sm-image *ngIf="selectedTrack.image==''" src="../assets/music.png"
-        alt="{{selectedTrack.artist }} - {{selectedTrack.album }}">
+<mat-card-title>{{songSelected.album | uppercase}}</mat-card-title>
+<img mat-card-sm-image *ngIf="songSelected.image!=''" src="{{songSelected.image}}"
+  alt="{{songSelected.artist }} - {{songSelected.album }}">
+<img mat-card-sm-image *ngIf="songSelected.image==''" src="../assets/music.png"
+  alt="{{songSelected.artist }} - {{songSelected.album }}">
     </mat-card-title-group>
   </mat-card-header>
   <mat-card-content>
     <div>
-      <label for="track-name">Artist: {{selectedTrack.artist }}</label>
-      <p>{{selectedTrack.description}}</p>
+      <label for="track-name">Artist: {{songSelected.artist }}</label>
+      <p>{{songSelected.description}}</p>
     </div>
     <div class="track-price">
-      <span>Price( ETH ): {{selectedTrack.price}} </span>
+      <span>Price( ETH ): {{songSelected.price}} </span>
     </div>
   </mat-card-content>
-</mat-card> -->
+</mat-card>
 
   <mat-divider></mat-divider>
 
