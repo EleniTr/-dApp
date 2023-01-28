@@ -1,17 +1,17 @@
 <div class="form-container" [formGroup]="form">
-	<h3>Create an Organization</h3>
+	<h3>Proceed with the payment</h3>
 
 	<div>
 		<mat-form-field appearance="outline">
 			<mat-label>Name</mat-label>
 			<input matInput type="text" placeholder="Name" formControlName="name"
-				placeholder="zoe.eth...">
+				placeholder="zoe.eth..." [readonly]="true">
 		</mat-form-field>
   </div>
   <div>
 		<mat-form-field appearance="outline">
 			<mat-label>Wallet Address</mat-label>
-			<textarea matInput type="text" formControlName="walletAddress" placeholder="0x8e4ba5...">
+			<textarea matInput type="text" formControlName="walletAddress" placeholder="0x8e4ba5..." [readonly]="true">
 		</textarea>
 		</mat-form-field>
 	</div>
@@ -19,8 +19,8 @@
 
 		<mat-label>Token Address</mat-label>
 		<mat-radio-group class="example-radio-group" aria-label="Select an option" formControlName="tokenAddress">
-			<mat-radio-button class="example-radio-button" value="0x0000000000000000000000000000000000000000">ETH</mat-radio-button>
-			<mat-radio-button class="example-radio-button" value="0xaD6D458402F60fD3Bd25163575031ACDce07538D">DAI</mat-radio-button>
+			<mat-radio-button class="example-radio-button" value="songPrice">ETH</mat-radio-button>
+			<!-- <mat-radio-button class="example-radio-button" value="0xaD6D458402F60fD3Bd25163575031ACDce07538D">DAI</mat-radio-button> -->
 		</mat-radio-group>
 
 		<!-- <mat-form-field appearance="outline">

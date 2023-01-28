@@ -143,6 +143,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.contractService.removeOrganizationAdmin(data.address, data.id);
   }
 
+  getSong() {
+    return this.songSelected;
+  }
+
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();

@@ -7,7 +7,7 @@ export const TRACKS: track[] = [
     album: "RUSH",
     description:
       "Rush! is the third studio album by Italian rock band Måneskin, released on 20 January 2023 through Epic Records.",
-    price: 500,
+    price: 6000,
     image: "https://i.scdn.co/image/ab67616d0000b273c1b211b5fcdef31be5f806df",
   },
   {
