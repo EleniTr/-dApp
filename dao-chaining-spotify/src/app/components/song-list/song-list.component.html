@@ -26,12 +26,12 @@
         <div>
           <label for="track-name">Artist: {{selectedTrack.artist }}</label>
           <p>{{selectedTrack.description}}</p>
-          <!-- Για τον χρηστη που περνα τα ονοματα με ενα submit  -->
-          <!-- <input id="hero-name" [(ngModel)]="selectedTrack.name" placeholder="name"> -->
+
         </div>
         <div class="track-price">
           <span>Price( ETH ): {{selectedTrack.price}} </span>
-          {{addedCart}}
+          <!-- Για τον χρηστη που περνα τα ονοματα με ενα submit  -->
+          <!-- <input *ngIf="userRole == 'admin'" id="hero-name"  placeholder="name"> -->
           <button class="add-to-cart" (click)="addToCart(selectedTrack.id)">Add to Cart</button>
         </div>
 

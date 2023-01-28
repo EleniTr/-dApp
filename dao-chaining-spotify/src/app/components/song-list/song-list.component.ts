@@ -18,12 +18,14 @@ export class SongListComponent implements OnInit {
   tracks = TRACKS;
   selectedTrack?: track;
   addedCart;
+  userRole: string;
 
   ngOnInit(): void {
     this.addedCart = this.store.dispatch({
       type: SongListActionTypes.addToCartStatus,
       addedCart: "false",
     });
+    // this.userRole = this.usersRole.userRole();
   }
 
   onSelect(track: track): void {

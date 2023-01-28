@@ -23,6 +23,10 @@ export class AppComponent {
     );
   }
 
+  userRole() {
+    return this.currentUser.role;
+  }
+
   logout() {
     this.authenticationService.logout();
     this.router.navigate(["/login"]);

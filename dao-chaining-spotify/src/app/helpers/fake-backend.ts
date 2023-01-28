@@ -9,18 +9,10 @@ import {
 } from "@angular/common/http";
 import { Observable, of, throwError } from "rxjs";
 import { delay, mergeMap, materialize, dematerialize } from "rxjs/operators";
-
+import usersData from "./users.json";
 import { User } from "../models/users";
 
-const users: User[] = [
-  {
-    id: 1,
-    username: "test",
-    password: "test",
-    firstName: "Test",
-    lastName: "User",
-  },
-];
+const users: User[] = usersData;
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -85,9 +77,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     }
 
     function isLoggedIn() {
-      return (
-        headers.get("Authorization") === `Basic ${window.btoa("test:test")}`
-      );
+      this.loggedInUser = authenticate();
+      if (this.loggedInUser.role != "admin") {
+        return (
+          headers.get("Authorization") === `Basic ${window.btoa("test:test")}`
+        );
+      } else {
+        return (
+          headers.get("Authorization") === `Basic ${window.btoa("admin:admin")}`
+        );
+      }
     }
   }
 }
