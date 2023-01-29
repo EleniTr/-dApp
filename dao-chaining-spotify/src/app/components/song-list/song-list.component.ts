@@ -4,6 +4,8 @@ import { TRACKS } from "./tracks";
 import { Store } from "@ngrx/store";
 import { Router, ActivatedRoute } from "@angular/router";
 import { SongListActionTypes } from "src/app/actions/song-list.actions";
+import { User } from "../../models/users";
+import { AccountService } from "../../services/account.service";
 
 @Component({
   selector: "app-song-list",
@@ -11,10 +13,14 @@ import { SongListActionTypes } from "src/app/actions/song-list.actions";
   styleUrls: ["./song-list.component.scss"],
 })
 export class SongListComponent implements OnInit {
+  user: User;
   constructor(
     private store: Store<{ fromSongList: { addToCart: string } }>,
-    private router: Router
-  ) {}
+    private router: Router,
+    private accountService: AccountService
+  ) {
+    this.user = this.accountService.userValue;
+  }
   tracks = TRACKS;
   selectedTrack?: track;
   addedCart;

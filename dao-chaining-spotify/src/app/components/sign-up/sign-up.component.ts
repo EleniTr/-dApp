@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit {
   signUpForm: FormGroup;
   loading = false;
   submitted = false;
+  roleList = ["Admin", "User"];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,10 +35,10 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
     this.signUpForm = this.formBuilder.group({
       username: ["", Validators.required],
-      password: ["", Validators.required, Validators.minLength(6)],
+      password: ["", [Validators.required, Validators.minLength(6)]],
       role: ["", Validators.required],
-      firstName: "",
-      lastName: "",
+      firstName: [""],
+      lastName: [""],
     });
   }
 
