@@ -23,8 +23,8 @@ import { MatCardModule } from "@angular/material/card";
 import { MatRadioModule } from "@angular/material/radio";
 import { MatIconModule } from "@angular/material/icon";
 
-import { BasicAuthInterceptor } from "./helpers/basic-auth.interceptor";
 import { ErrorInterceptor } from "./helpers/error.interceptior";
+import { JwtInterceptor } from "./helpers/jwt.interceptor";
 
 // used to create fake backend
 import { fakeBackendProvider } from "./helpers/fake-backend";
@@ -43,6 +43,8 @@ import { GetOrgComponent } from "./components/get-org/get-org.component";
 import { DetailOrgComponent } from "./components/detail-org/detail-org.component";
 import { LoginComponent } from "./components/login/login.component";
 import { SongListComponent } from "./components/song-list/song-list.component";
+import { SignUpComponent } from "./components/sign-up/sign-up.component";
+import { AlertComponent } from "./components/alert/alert.component";
 
 @NgModule({
   declarations: [
@@ -54,6 +56,8 @@ import { SongListComponent } from "./components/song-list/song-list.component";
     DetailOrgComponent,
     LoginComponent,
     SongListComponent,
+    SignUpComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +100,7 @@ import { SongListComponent } from "./components/song-list/song-list.component";
       provide: MAT_FORM_FIELD_DEFAULT_OPTIONS,
       useValue: { floatLabel: "never" },
     },
-    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
     // provider used to create fake backend

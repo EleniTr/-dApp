@@ -1,5 +1,4 @@
-
-.login-position .card {
+.signup-position .card {
   justify-content: center;
   display: flex;
   flex-direction: row;
@@ -11,13 +10,13 @@
   padding: 15px;
 }
 
-.form-control{
+.form-control {
   margin-bottom: 15px;
   max-width: 200px;
   height: 30px;
 }
 
-.login-position .btn-primary{
+.signup-position .btn-primary {
   color: #fff;
   font-weight: bold;
   margin-top: 15px;
@@ -26,25 +25,4 @@
   background-color: #fe5e88;
   cursor: pointer;
   border-radius: 4px;
-}
-.login-position .btn-secondary{
-  color: #fff;
-  font-weight: bold;
-  margin-top: 15px;
-  padding: 5px;
-  border: 2px solid #0b7465;
-  background-color: #0b7465;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-h3{
-  color: #fff;
-  font-size: large;
-}
-
-
-.buttons{
-  display: flex;
-  justify-content: space-between;
 }

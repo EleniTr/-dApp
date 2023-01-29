@@ -3,7 +3,8 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { first } from "rxjs/operators";
 
-import { AuthenticationService } from "../../services/authentication.service";
+import { AlertService } from "../../services/alert.service";
+import { AccountService } from "../../services/account.service";
 
 @Component({ templateUrl: "login.component.html" })
 export class LoginComponent implements OnInit {
@@ -11,19 +12,14 @@ export class LoginComponent implements OnInit {
   loading = false;
   submitted = false;
   returnUrl: string;
-  error = "";
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
-  ) {
-    // redirect to home if already logged in
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(["/"]);
-    }
-  }
+    private accountService: AccountService,
+    private alertService: AlertService
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -43,13 +39,16 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
+    // reset alerts on submit
+    this.alertService.clear();
+
     // stop here if form is invalid
     if (this.loginForm.invalid) {
       return;
     }
 
     this.loading = true;
-    this.authenticationService
+    this.accountService
       .login(this.f.username.value, this.f.password.value)
       .pipe(first())
       .subscribe(
@@ -57,9 +56,13 @@ export class LoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         (error) => {
-          this.error = error;
+          this.alertService.error(error);
           this.loading = false;
         }
       );
+  }
+
+  onSignUp() {
+    this.router.navigate(["/signup"]);
   }
 }

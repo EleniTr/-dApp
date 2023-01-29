@@ -1,6 +1,5 @@
 import { Component } from "@angular/core";
-import { ContractService } from "./services/contract.service";
-import { AuthenticationService } from "./services/authentication.service";
+import { AccountService } from "./services/account.service";
 import { Router } from "@angular/router";
 import { User } from "./models/users";
 
@@ -11,24 +10,13 @@ import { User } from "./models/users";
 })
 export class AppComponent {
   title = "chaining-spotify-dapp";
-  private user;
-  currentUser: User;
+  user: User;
 
-  constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService
-  ) {
-    this.authenticationService.currentUser.subscribe(
-      (x) => (this.currentUser = x)
-    );
-  }
-
-  userRole() {
-    return this.currentUser.role;
+  constructor(private accountService: AccountService) {
+    this.accountService.user.subscribe((x) => (this.user = x));
   }
 
   logout() {
-    this.authenticationService.logout();
-    this.router.navigate(["/login"]);
+    this.accountService.logout();
   }
 }

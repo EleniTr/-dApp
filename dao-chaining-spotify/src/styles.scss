@@ -31,8 +31,18 @@ button {
   display: none;
 }
 
+.invalid-feedback{
+  color:#fe5e88
+}
+
 router-outlet+* {
-  .login-position {
+    .form-control {
+      margin-bottom: 15px;
+      max-width: 200px;
+      height: 30px;
+    }
+
+  .login-position, .signup-position {
       position: relative;
       top: 160px;
       justify-content: center;
@@ -40,7 +50,7 @@ router-outlet+* {
       flex-direction: row;
       align-content: center;
     }
-        .login-position .card {
+        .login-position .card , .signup-position .card{
           justify-content: center;
           display: flex;
           flex-direction: row;
@@ -58,7 +68,7 @@ router-outlet+* {
           height: 30px;
         }
 
-        .login-position .btn-primary {
+        .login-position .btn-primary,.signup-position .btn-primary {
           color: #fff;
           font-weight: bold;
           margin-top: 15px;
@@ -68,8 +78,24 @@ router-outlet+* {
           cursor: pointer;
           border-radius: 4px;
         }
+        .login-position .btn-secondary {
+          color: #fff;
+          font-weight: bold;
+          margin-top: 15px;
+          padding: 8px;
+          border: 2px solid #0b7465;
+          background-color: #0b7465;
+          cursor: pointer;
+          border-radius: 4px;
+        }
 
-        h3 {
+          .signup-position .buttons , .login-position .buttons {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        .login-position h3,.signup-position h3 {
           color: #fff;
           font-size: large;
         }
