@@ -31,7 +31,7 @@
         <div class="track-price">
           <span>Price( ETH ): {{selectedTrack.price}} </span>
           <!-- Για τον χρηστη που περνα τα ονοματα με ενα submit  -->
-          <!-- <input *ngIf="userRole == 'admin'" id="hero-name"  placeholder="name"> -->
+          <input *ngIf="userRole == 'Admin'" id="hero-name"  placeholder="name">
           <button class="add-to-cart" (click)="addToCart(selectedTrack.id)">Add to Cart</button>
         </div>
 
@@ -41,4 +41,10 @@
 
   </div>
 
+<form [formGroup]="ipfsForm" action="/profile" method="post" enctype="multipart/form-data">
+  <input type="file" formControlName="ipfsForm_file"  />
+  <button>upload</button>
+</form>
+
 </div>
+

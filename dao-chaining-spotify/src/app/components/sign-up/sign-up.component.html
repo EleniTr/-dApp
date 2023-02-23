@@ -16,6 +16,7 @@
           <h3 for="role">Role</h3>
           <select formControlName="role" class="form-control">
             <option disabled>Select Role</option>
+            <option>Choose Role</option>
             <option *ngFor="let role of roleList">{{role}}</option>
           </select>
           <div *ngIf="f.role.touched && f.role.invalid" class="alert alert-danger">

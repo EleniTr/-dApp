@@ -35,12 +35,35 @@ button {
   color:#fe5e88
 }
 
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+.alert {
+  padding: .75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  position: fixed;
+  top: 120px;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
+.form-control {
+  margin-bottom: 15px;
+  max-width: 200px;
+  height: 30px;
+}
+
 router-outlet+* {
-    .form-control {
-      margin-bottom: 15px;
-      max-width: 200px;
-      height: 30px;
-    }
+
 
   .login-position, .signup-position {
       position: relative;
